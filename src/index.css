@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body{
+    font-family: "Inter", sans-serif;
+    background-color: black;
+}
+
+.section-title::before {
+    content: '';
+    @apply absolute left-0  top-0 h-full w-1 bg-red-600; /* الخط الأحمر باستخدام Tailwind */
+  }

@@ -8,6 +8,8 @@ import Movies from './Components/Movies/Movies'
 import MyList from './Components/Mylist/MyList'
 import TVshows from './Components/TVshows/TVshows'
 import Login from './Components/Login/Login'
+import WelcomBack from './Components/welcomeBack/WelcomBack'
+import SignUP from './Components/SignUp/SignUP'
 
 
 
@@ -18,8 +20,10 @@ let router = createBrowserRouter(
       {index:true , element:<Home/> },
       {path:"movies", element:<Movies/>},
       {path:"myList", element:<MyList/>},
-      {path:"TvShows", element:<TVshows/>},
+      {path:"tvShows", element:<TVshows/>},
       {path:"login", element:<Login/>},
+      {path:"signUp", element:<SignUP/>},
+      {path:"welcomBack", element:<WelcomBack/>},
       {path:"*", element:<NotFound/>}
     ]},
 
