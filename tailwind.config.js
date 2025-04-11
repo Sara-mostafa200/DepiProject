@@ -20,7 +20,7 @@ export default {
         SecondColor:'rgba(248, 175, 73, 0.87)',
       },
       backgroundImage:{
-        WelcomBack:"url(./src/assets/WelcomeBack1.jpg)",
+        WelcomBack:"url(./src/assets/WelcomeBack1.jpeg)",
         HeroBack:"url(./src/assets/heroback.jpeg)",
 
       }

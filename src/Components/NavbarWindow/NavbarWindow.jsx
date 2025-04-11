@@ -15,7 +15,7 @@ export default function NavbarWindow({ open, setopen }) {
       <main className="container mx-auto flex flex-col justify-around h-full  ">
         <header className="flex px-3 md:px-0 justify-between items-center ">
           {/* logo */}
-          <div className="logo text-mainColor font-bold text-3xl  ">Netflix</div>
+          <div className="logo text-mainColor font-bold text-3xl  ">DepiFilm</div>
           
           {/* my list */}
           <div className="flex items-center gap-3">
