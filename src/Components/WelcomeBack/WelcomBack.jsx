@@ -23,9 +23,9 @@ const WelcomBack = () => {
 
         {/* icons */}
         <div className='flex gap-3 items-center text-center '>
-        <i class="fa-brands fa-instagram text-[30px]"></i>
-        <i class="fa-brands fa-facebook text-[25px]"></i>
-        <i class="fa-brands fa-x-twitter text-[25px]"></i>
+        <i className="fa-brands fa-instagram text-[30px]"></i>
+        <i className="fa-brands fa-facebook text-[25px]"></i>
+        <i className="fa-brands fa-x-twitter text-[25px]"></i>
         </div>
       
         </div>

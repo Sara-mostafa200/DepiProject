@@ -69,10 +69,11 @@ export default function TrendNow() {
         
       {allMovies?.map((item) => (
           <FilmCard
-             key={item.id}
-            filmVoteAverage={item.vote_average}
-            posterPath={item.poster_path}
-            filmTitle={item.title}
+             key={item._id}
+             filmVoteAverage={item.imdbRating}
+             posterPath={item.Poster}
+             filmTitle={item.Title}
+             Trailer={item.Trailer}
           />
          
          

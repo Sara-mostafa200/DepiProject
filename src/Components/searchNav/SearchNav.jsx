@@ -43,9 +43,9 @@ export default function SearchNav() {
         className="bg-transparent text-white h-8 pl-7 rounded-lg focus:border-mainColor focus:ring-0"
       />
       {toggle && (
-        <div className="absolute z-10 left-0 right-0 top-[100%] bg-opacity-50 bg-black h-96 overflow-y-scroll">
+        <div className="custom-scrollbar absolute z-10 left-0 right-0 top-[100%] bg-opacity-50 bg-black h-96 overflow-y-scroll">
           {data?.map((film) => (
-            <div className="w-full mt-3 flex gap-5 items-center hover:text-SecondColor">
+            <div key={film.id} className="w-full mt-3 flex gap-5 items-center hover:text-SecondColor">
               <img
                 src={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
                 className="size-16 object-contain"

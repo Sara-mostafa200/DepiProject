@@ -3,7 +3,7 @@ import { JSON_HEADERS } from "../constants/headers.constant";
 
 let initialState = { allMovies: [],  isLoading : false ,isError: null };
 const url =
-  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc";
+  "https://movies-qqg3.onrender.com/api/movies/?Type=series";
 
 export let getMovies = createAsyncThunk("moviesSlice/getMovies", async () => {
   const response = await fetch(url, {
@@ -23,7 +23,7 @@ let moviesSlice = createSlice({
   initialState,
   extraReducers:( builder) => {
    builder.addCase(getMovies.fulfilled , (state , action ) => {
-     state.allMovies = action.payload.results ; 
+     state.allMovies = action.payload.data.tours ; 
      state.isLoading = false
    }), 
    builder.addCase(getMovies.pending , (state , action) => {

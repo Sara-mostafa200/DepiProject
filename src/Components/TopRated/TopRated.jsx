@@ -10,10 +10,10 @@ export default function TopRated() {
   const navigate = useNavigate();
 
   // constant
-  const url =
-    "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
   // const url =
-  //   "https://api.themoviedb.org/3/search/movie?query=b&include_adult=false&language=en-US&page=1";
+  //   "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
+  const url =
+    "https://movies-qqg3.onrender.com/api/movies/?imdbRating=9.2";
 
   // functions
 
@@ -21,15 +21,12 @@ export default function TopRated() {
     try {
       const response = await fetch(url, {
         method: "GET",
-        headers: {
-          ...JSON_HEADERS,
-        },
       });
 
       const payload = await response.json();
-      console.log(payload);
+      console.log(payload.data.tours);
       
-      if (payload.results) setdata(payload.results);
+      if (payload.data.tours) setdata(payload.data.tours);
     } catch (error) {
       navigate("/error");
       setdata(error);
@@ -96,9 +93,12 @@ export default function TopRated() {
         
       {data?.map((item) => (
                <FilmCard
-            filmVoteAverage={item.vote_average}
-            posterPath={item.poster_path}
-            filmTitle={item.title}
+               key={item._id}
+               filmVoteAverage={item.imdbRating}
+               posterPath={item.Poster}
+               filmTitle={item.Title}
+               Trailer={item.Trailer}
+
           />
          
            

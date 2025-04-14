@@ -80,7 +80,7 @@ export default function PopularInterests() {
       {/* slider */}
       <Slider className=" py-5" {...settings}>
         {data.map((type) => (
-          <div className="relative group w-full h-64 p-4 flex justify-center items-center">
+          <div key={type.title} className="relative group w-full h-64 p-4 flex justify-center items-center">
             <div className="relative overflow-hidden">
               <img
                 src={type.src}
