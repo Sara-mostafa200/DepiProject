@@ -2,14 +2,18 @@ import React, { useEffect, useState } from "react";
 import  Slider  from "react-slick";
 import { JSON_HEADERS } from "../../constants/headers.constant";
 import FilmCard from "./../FilmCard/FilmCard";
+import { useNavigate } from "react-router-dom";
 
 export default function TopRated() {
   // hooks
   const [data, setdata] = useState(null);
+  const navigate = useNavigate();
 
   // constant
   const url =
-    "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc";
+    "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
+  // const url =
+  //   "https://api.themoviedb.org/3/search/movie?query=b&include_adult=false&language=en-US&page=1";
 
   // functions
 
@@ -23,15 +27,17 @@ export default function TopRated() {
       });
 
       const payload = await response.json();
-
+      console.log(payload);
+      
       if (payload.results) setdata(payload.results);
     } catch (error) {
+      navigate("/error");
       setdata(error);
       console.log(data);
+
     }
   };
-  console.log(data);
-  console.log("FilmCard Component: ", FilmCard);
+  
 
   // Slider
   var settings = {

@@ -14,3 +14,13 @@ body{
     content: '';
     @apply absolute left-0  top-0 h-full w-1 bg-red-600; /* الخط الأحمر باستخدام Tailwind */
   }
+
+  .slick-dots li button:before {
+    color: rgba(254, 20, 43, 0.75) !important;
+    opacity: 0.7;
+    
+  }
+  .slick-dots li.slick-active button:before {
+    color: rgba(254, 20, 43, 0.75) !important;
+    opacity: 1;
+  }

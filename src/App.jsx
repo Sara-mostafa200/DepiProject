@@ -10,6 +10,9 @@ import TVshows from './Components/TVshows/TVshows'
 import Login from './Components/Login/Login'
 import WelcomBack from './Components/welcomeBack/WelcomBack'
 import SignUP from './Components/SignUp/SignUP'
+import { store } from './lib/store'
+import { Provider } from 'react-redux'
+import Error from './Components/Error/Error'
 
 
 
@@ -24,6 +27,7 @@ let router = createBrowserRouter(
       {path:"login", element:<Login/>},
       {path:"signUp", element:<SignUP/>},
       {path:"welcomBack", element:<WelcomBack/>},
+      {path:"error", element:<Error/>},
       {path:"*", element:<NotFound/>}
     ]},
 
@@ -31,8 +35,9 @@ let router = createBrowserRouter(
 )
   return (
     <>
+    <Provider store={store}>
      <RouterProvider router={router}></RouterProvider>
-     
+     </Provider>
     </>
   )
 }

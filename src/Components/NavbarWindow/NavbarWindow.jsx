@@ -10,7 +10,7 @@ export default function NavbarWindow({ open, setopen }) {
 
   return (
     <div
-      className={`${!open && `hidden`} fixed inset-0 bg-black  text-white  `}
+      className={`${!open && `hidden`} z-20 fixed inset-0 bg-black  text-white  `}
     >
       <main className="container mx-auto flex flex-col justify-around h-full  ">
         <header className="flex px-3 md:px-0 justify-between items-center ">
