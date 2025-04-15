@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
 import { JSON_HEADERS } from "../../constants/headers.constant";
 import Superhero from "../../assets/Superhero.jpg";
@@ -6,8 +6,10 @@ export default function SearchNav() {
   // hooks
   const [data, setdata] = useState(null);
   const [toggle, settoggle] = useState(false);
+  const timeoutRef = useRef(null);
   // function
   const Search = async (KeyWord) => {
+    if (!KeyWord) return setdata(null); 
     try {
       const response = await fetch(
         `https://api.themoviedb.org/3/search/movie?query=${KeyWord}&include_adult=false&language=en-US&page=1`,
@@ -20,13 +22,23 @@ export default function SearchNav() {
       );
 
       const payload = await response.json();
-      console.log(payload);
-
+      
       if (payload.results) setdata(payload.results);
     } catch (error) {
       console.log(error);
     }
   };
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+
+    if (timeoutRef.current) clearTimeout(timeoutRef.current); 
+
+    timeoutRef.current = setTimeout(() => {
+      Search(value);
+    }, 500); 
+  };
+
 
   return (
     <div
@@ -37,7 +49,7 @@ export default function SearchNav() {
       <input
         onFocus={() => settoggle(true) }
         onBlur={() => settoggle(false)}
-        onChange={(e) => Search(e.target.value)}
+        onChange={handleChange}
         type="search"
         placeholder="search now"
         className="bg-transparent text-white h-8 pl-7 rounded-lg focus:border-mainColor focus:ring-0"

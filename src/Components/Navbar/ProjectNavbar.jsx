@@ -40,18 +40,7 @@ export function ProjectNavbar() {
         <NavLink className={`w-full text-center mt-3 md:mt-0`} to="/movies">
           Movies
         </NavLink>
-        <NavLink
-          className={`w-full text-center md:text-nowrap   mt-3 md:mt-0`}
-          to="/myList"
-        >
-          My List
-        </NavLink>
-        <NavLink
-          className={`w-full text-center block md:hidden mt-3 md:mt-0`}
-          to="/Login"
-        >
-          Login
-        </NavLink>
+        
       </Navbar.Collapse>
     </Navbar>
   );

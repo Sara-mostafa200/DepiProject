@@ -12,15 +12,19 @@ const MovieDetails = () => {
   
   const dispatch = useDispatch();
   const { allMovies, isLoading, isError } = useSelector((state) => state.movies); 
+
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (allMovies.length === 0) {
+
     dispatch(getMovies());
+    
     }
-  }, [allMovies.length,dispatch]);
-  console.log(allMovies);
+  }, [allMovies.length,dispatch  , id]);
+
  
   const movie = allMovies.find((movie) => movie._id === id);
-console.log(movie);
+
   if (isLoading) return <div className="text-center text-white mt-10">Loading...</div>;
   if (isError) return <div className="text-center mt-10 text-red-500">Error fetching movie data.</div>;
   if (!movie) return <div className="text-center text-white mt-10">Movie not found.</div>;

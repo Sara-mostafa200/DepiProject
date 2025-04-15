@@ -24,13 +24,13 @@ export default function TopRated() {
       });
 
       const payload = await response.json();
-      console.log(payload.data.tours);
+      
       
       if (payload.data.tours) setdata(payload.data.tours);
     } catch (error) {
       navigate("/error");
       setdata(error);
-      console.log(data);
+      console.log(data,"eror");
 
     }
   };

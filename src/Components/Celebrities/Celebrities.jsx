@@ -62,7 +62,7 @@ export default function Celebrities() {
     if (payload.results) {
       setdata(payload.results);
     }
-    console.log(data);
+    
     
 
   };

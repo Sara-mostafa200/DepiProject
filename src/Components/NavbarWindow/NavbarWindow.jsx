@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function NavbarWindow({ open, setopen }) {
   // functions
@@ -20,7 +21,7 @@ export default function NavbarWindow({ open, setopen }) {
           {/* my list */}
           <div className="flex items-center gap-3">
             <i className="fa-solid fa-heart text-mainColor text-3xl"></i>
-            <span>MyList</span>
+            <Link onClick={toggleFunction} to="/">Home</Link>
           </div>
 
           {/* close action */}
