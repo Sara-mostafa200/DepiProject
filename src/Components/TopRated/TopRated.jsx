@@ -98,6 +98,7 @@ export default function TopRated() {
                posterPath={item.Poster}
                filmTitle={item.Title}
                Trailer={item.Trailer}
+               id={item._id}  
 
           />
          

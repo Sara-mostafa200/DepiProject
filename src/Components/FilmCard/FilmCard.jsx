@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-export default function FilmCard({ posterPath, filmTitle, filmVoteAverage , Trailer}) {
+export default function FilmCard({ id, posterPath, filmTitle, filmVoteAverage , Trailer}) {
   return (
     <div className="bg-[#1E1E1E] rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 w-48 my-4 mx-auto duration-300">
+      <Link to={`/movies/${id}`}>
       {/* image */}
       <img src={posterPath} alt="title" className="w-full h-64 object-cover" />
-
+      </Link>
       {/* content */}
       <div className="p-4">
         {/* title */}

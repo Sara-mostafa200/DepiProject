@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './Components/Layout/Layout'
@@ -13,6 +13,7 @@ import SignUP from './Components/SignUp/SignUP'
 import { store } from './lib/store'
 import { Provider } from 'react-redux'
 import Error from './Components/Error/Error'
+import MovieDetails from "./Components/MovieDetails/MovieDetails"
 
 
 
@@ -27,6 +28,7 @@ let router = createBrowserRouter(
       {path:"login", element:<Login/>},
       {path:"signUp", element:<SignUP/>},
       {path:"welcomBack", element:<WelcomBack/>},
+      { path: "movies/:id", element: <MovieDetails /> },
       {path:"error", element:<Error/>},
       {path:"*", element:<NotFound/>}
     ]},

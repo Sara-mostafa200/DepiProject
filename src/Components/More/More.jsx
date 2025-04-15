@@ -5,7 +5,7 @@ import FilmCard from "./../FilmCard/FilmCard";
 import { getMovies } from "../../lib/moviesSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function TrendNow() {
+export default function More() {
   // hooks
   const [data, setdata] = useState(null);
   const dispatch = useDispatch()
@@ -52,8 +52,9 @@ export default function TrendNow() {
   };
   
   // useEffect
-  useEffect(() => {
+  useEffect(() => { if (!allMovies || allMovies.length === 0) {
     dispatch(getMovies());
+  }
     
   }, []);
 
@@ -61,7 +62,7 @@ export default function TrendNow() {
     <section className="py-10">
       {/* title */}
       <h3 className="section-title relative pl-5 py-2 text-SecondColor text-3xl font-bold">
-      Trend NOW
+      More like this
       </h3>
 
       {/* slider */}
@@ -74,7 +75,7 @@ export default function TrendNow() {
              posterPath={item.Poster}
              filmTitle={item.Title}
              Trailer={item.Trailer}
-             id={item._id}
+             id= {item._id} 
              
           />
          
