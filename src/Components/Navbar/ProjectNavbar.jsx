@@ -1,28 +1,46 @@
-
 "use client";
 
 import { Button, Navbar } from "flowbite-react";
 import { NavLink } from "react-router-dom";
+import NavbarWindow from "../NavbarWindow/NavbarWindow";
+import { useState } from "react";
+import { Search } from "./../../lib/searchFn";
+import SearchNav from './../searchNav/SearchNav';
 
 export function ProjectNavbar() {
+  // hooks
+  const [open, setopen] = useState(false);
+
   return (
-    <Navbar  >
+    <Navbar className="bg-transparent py-5 text-white text-xl">
       <Navbar.Brand>
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Netflix</span>
+        <span
+          onClick={() => setopen(true)}
+          className="fa-bounce cursor-pointer self-center whitespace-nowrap text-xl font-semibold dark:text-white"
+        >
+          DepiFilm
+        </span>
       </Navbar.Brand>
-      <div className="flex md:order-2 gap-3 items-center">
-        <i className="fa-solid fa-magnifying-glass "></i>
-        <NavLink to="/Login" className="hidden md:block">Login</NavLink>
+      <NavbarWindow open={open} setopen={setopen} />
+      <div className="flex justify-between w-full md:w-auto md:order-2 gap-3 items-center">
+        <SearchNav/>
+
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <NavLink to="/" >
+        <NavLink className={`w-full text-center `} to="/">
           Home
         </NavLink>
-        <NavLink to="/TvShows">TV Shows</NavLink>
-        <NavLink to="/movies">Movies</NavLink>
-        <NavLink to="/myList">My List</NavLink>
-        <NavLink to="/Login" className="block md:hidden">Login</NavLink>
+        <NavLink
+          className={`w-full text-center md:text-nowrap mt-3 md:mt-0`}
+          to="/TvShows"
+        >
+          TV Shows
+        </NavLink>
+        <NavLink className={`w-full text-center mt-3 md:mt-0`} to="/movies">
+          Movies
+        </NavLink>
+        
       </Navbar.Collapse>
     </Navbar>
   );
