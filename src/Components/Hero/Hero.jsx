@@ -16,13 +16,13 @@ export default function Hero() {
   };
 
   return (
-    <Slider className="h-screen " {...settings}>
+    <Slider className=" " {...settings}>
       
       
-      <div>
+      <div className="flex justify-center items-center lg:h-screen ">
         <iframe
         key="video1"
-        className="w-10/12 mx-auto h-screen p-5 rounded-lg "
+        className="aspect-video w-full  lg:w-10/12 mx-auto p-5 rounded-lg "
         src="https://www.youtube.com/embed/0pdqf4P9MB8"
         
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -30,11 +30,13 @@ export default function Hero() {
         title="Video 1"
       ></iframe>
       </div>
+      
+      
 
-      <div>
+      <div className="flex justify-center items-center lg:h-screen ">
         <iframe
         key="video1"
-        className="w-10/12 mx-auto h-screen p-5 rounded-lg "
+        className="aspect-video w-full  lg:w-10/12 mx-auto p-5 rounded-lg "
         src="https://www.youtube.com/embed/LLAaW1EgyY8"
         
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -43,10 +45,10 @@ export default function Hero() {
       ></iframe>
       </div>
       
-      <div>
+      <div className="flex justify-center items-center lg:h-screen ">
         <iframe
         key="video1"
-        className="w-10/12 mx-auto h-screen p-5 rounded-lg "
+        className="aspect-video w-full  lg:w-10/12 mx-auto p-5 rounded-lg "
         src="https://www.youtube.com/embed/UaVTIH8mujA"
         
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
