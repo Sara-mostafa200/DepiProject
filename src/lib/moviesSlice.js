@@ -3,7 +3,7 @@ import { JSON_HEADERS } from "../constants/headers.constant";
 
 let initialState = { allMovies: [],  isLoading : false ,isError: null };
 const url =
-  "https://movies-qqg3.onrender.com/api/movies/?Type=series";
+  "https://movies-qqg3.onrender.com/api/movies/?Type=movie";
 
 export let getMovies = createAsyncThunk("moviesSlice/getMovies", async () => {
   const response = await fetch(url, {

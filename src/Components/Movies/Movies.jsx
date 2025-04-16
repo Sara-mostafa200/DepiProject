@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import FilmCard from './../FilmCard/FilmCard';
+import FilmCard from "./../FilmCard/FilmCard";
 import { getMovies } from "../../lib/moviesSlice";
 
 const Movies = () => {
@@ -12,7 +12,6 @@ const Movies = () => {
 
   const genres = ["Action", "Comedy", "Drama", "Fantasy", "Romance"];
 
-  // Fetch movies only once on initial load
   useEffect(() => {
     dispatch(getMovies());
   }, [dispatch]);
@@ -24,15 +23,17 @@ const Movies = () => {
     }));
   };
 
-  // Filter movies in the frontend
   const filteredMovies = filters.genre
-    ? allMovies.filter((movie) => movie.genre === filters.genre)
+    ? allMovies.filter((movie) => {
+        const genresArray = movie.Genre?.split(",").map((g) => g.trim().toLowerCase()) || [];
+        return genresArray.includes(filters.genre.toLowerCase());
+      })
     : allMovies;
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 p-8 min-h-screen ">
+    <div className="flex flex-col md:flex-row gap-8 p-8 min-h-screen">
       {/* Filter Sidebar */}
-      <div className=" w-full md:w-64 p-4 rounded-lg h-fit">
+      <div className="w-full md:w-64 p-4 rounded-lg h-fit">
         <h3 className="text-xl font-semibold text-white mb-4">
           Filter by Genre
         </h3>
@@ -68,15 +69,21 @@ const Movies = () => {
           <div className="flex justify-center items-center h-64">
             <div className="text-white">Loading...</div>
           </div>
+        ) : filteredMovies.length === 0 ? (
+          <div className="text-white text-center">
+            No movies found for this genre.
+          </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
             {filteredMovies.map((movie) => (
-              <FilmCard key={movie._id}
-              filmVoteAverage={movie.imdbRating}
-              posterPath={movie.Poster}
-              filmTitle={movie.Title}
-              Trailer={movie.Trailer}
-              id={movie._id} />
+              <FilmCard
+                key={movie._id}
+                filmVoteAverage={movie.imdbRating}
+                posterPath={movie.Poster}
+                filmTitle={movie.Title}
+                Trailer={movie.Trailer}
+                id={movie._id}
+              />
             ))}
           </div>
         )}

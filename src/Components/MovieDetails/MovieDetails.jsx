@@ -5,25 +5,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMovies } from "../../lib/moviesSlice"; 
 import More from "../More/More";
 import Reaction from "../Reaction/Reaction";
+import { getAllData } from "../../lib/allData";
 
 
 const MovieDetails = () => {
   const { id } = useParams(); 
   
   const dispatch = useDispatch();
-  const { allMovies, isLoading, isError } = useSelector((state) => state.movies); 
+  const { allData, isLoading, isError } = useSelector((state) => state.allData); 
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (allMovies.length === 0) {
+    if (allData.length === 0) {
 
-    dispatch(getMovies());
+    dispatch(getAllData());
     
     }
-  }, [allMovies.length,dispatch  , id]);
+  }, [allData.length,dispatch  , id]);
 
  
-  const movie = allMovies.find((movie) => movie._id === id);
+  const movie = allData.find((movie) => movie._id === id);
 
   if (isLoading) return <div className="text-center text-white mt-10">Loading...</div>;
   if (isError) return <div className="text-center mt-10 text-red-500">Error fetching movie data.</div>;

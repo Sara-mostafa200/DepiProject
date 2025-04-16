@@ -1,10 +1,53 @@
 import React, { useEffect, useState } from "react";
 import { JSON_HEADERS } from "./../../constants/headers.constant";
 import Slider from "react-slick";
+import actor1 from "../../assets/actor1.jpg";
+import actor2 from "../../assets/actor2.jpg";
+import actor3 from "../../assets/actor3.jpg";
+import actor4 from "../../assets/actor4.jpg";
+import actor5 from "../../assets/actor5.jpg";
+import actor6 from "../../assets/actor6.jpg";
+import actor7 from "../../assets/actor7.jpg";
+import actor8 from "../../assets/actor8.jpg";
 
 export default function Celebrities() {
   // hooks
-  const [data, setdata] = useState(null);
+  // const [data, setdata] = useState(null);
+    const data = [
+      {
+        src: actor1,
+        title: "actor1",
+      },
+      {
+        src: actor2,
+        title: "actor2",
+      },
+      {
+        src: actor3,
+        title: "actor3",
+      },
+      {
+        src: actor4,
+        title: "actor4",
+      },
+      {
+        src: actor5,
+        title: "actor5",
+      },
+      {
+        src: actor6,
+        title: "actor6",
+      },
+      {
+        src: actor7,
+        title: "actor7",
+      },
+      {
+        src: actor8,
+        title: "actor8",
+      },
+     
+    ];
 
   // Slider
   var settings = {
@@ -79,8 +122,8 @@ export default function Celebrities() {
        {/* slider */}
       <Slider className="" {...settings}>
         {data?.map((item) => (
-          <div key={item.id} className="py-5 ">
-          <img src={`https://image.tmdb.org/t/p/w500${item.profile_path}`} className="rounded-full object-cover mx-auto size-48 p-5"/>
+          <div key={item.title} className="py-5 ">
+          <img src={item.src} className="rounded-full object-cover mx-auto size-56 p-5"/>
           </div> 
         ))}
       </Slider> 
