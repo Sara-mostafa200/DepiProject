@@ -17,6 +17,8 @@ export default function Home() {
       <TrendNow/>
       <PopularInterests/>
       <TopRated/>
+      <TopRated/>
+      <TopRated/>
       </div>
       <div className='w-full flex justify-center items-center p-5'>
       <Link className='bg-mainColor w-full md:w-1/2 px-3 py-3 text-center text-white font-inter font-[600] text-[20px] rounded-full' to={"/login"} >sign in for more access</Link>
